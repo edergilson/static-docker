@@ -1,0 +1,12 @@
+version: '2'
+services:
+  server:
+    image: nginx:1.15
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ../GKT-STATIC-APP-KABUM:/usr/share/nginx/html
+      - ./nginx/static.qa.kabumdev.com.br.crt:/etc/nginx/static.qa.kabumdev.com.br.crt
+      - ./nginx/static.qa.kabumdev.com.br.key:/etc/nginx/static.qa.kabumdev.com.br.key
+    ports:
+    - "8090:80"
+    - "443:443"
